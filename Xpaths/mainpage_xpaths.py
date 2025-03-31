@@ -2,7 +2,9 @@ from selenium.webdriver.common.by import By
 
 job_title = (By.XPATH,"//span[contains(@id,'jobTitle')]")
 
-job_location = (By.XPATH,"//div[@data-testid='company-name']")
+job_location = (By.XPATH,"//div[@data-testid='text-location']")
+
+job_company = (By.XPATH,"//span[@data-testid='company-name']")
 
 job_salary = (By.XPATH,"//div[contains(@class,'salary')]")
 

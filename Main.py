@@ -1,30 +1,31 @@
 import time
-from tqdm import tqdm as tq
-import Xpaths.page_xpaths as pxp
-import Xpaths.starter_xpaths as sxp
-from Driver_init.initial import start
-from Pages import login
-driver = start()
+from Modules import initial,Extraction
+from Pages import login,jobs
 
-login.login_in(driver)
+##---- Initializing all Pages----
 
-time.sleep(4)
+bot = initial.webd()
+driver = bot.driver
+mainPage = jobs.mainpage(driver)
+loginPage = login.log(driver)
+extract = Extraction.Extract(driver)
+print("Intialized all the pages")
 
-Home = driver.find_element(*sxp.home)
+##-------------------------------
 
-print(f"Landed in Homepage({Home.is_displayed()})")
-
-Home.click()
-
-time.sleep(3)
-
-driver.find_element(*pxp.search).send_keys("jobs")
-
-driver.find_element(*pxp.find_jobs).click()
-
-print("Searched Jobs")
+loginPage.login_in()
 
 time.sleep(4)
-jobTitle = driver.find_elements(*pxp.job_title)
 
-print(len(jobTitle))
+loginPage.verifyhomepage()
+
+time.sleep(5)
+
+mainPage.search("data analyst")
+
+arr = extract.extract_titles_comp_loc()
+
+# for i in arr:
+#     print(i)
+
+bot.quit()

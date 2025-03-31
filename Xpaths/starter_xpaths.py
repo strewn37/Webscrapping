@@ -17,3 +17,5 @@ login_code = (By.XPATH,"//a[text()='Sign in with login code instead']")
 passcode = (By.XPATH,"//input[@name='passcode']")
 
 error = (By.XPATH,"//div[text()='Code did not match or is no longer valid']")
+
+name = (By.XPATH,"//header/h1")
