@@ -43,3 +43,7 @@ This project involves web scraping job listings from platforms like **Indeed** a
 
 ---
 
+# Here is the Workflow of the Project Visually
+
+![WebScrapping - Webscraping(Indeed)](https://github.com/user-attachments/assets/a4f464a8-e882-4de9-8f72-42b8344a25da)
+
