@@ -10,6 +10,8 @@ job_salary = (By.XPATH,"//div[contains(@class,'salary')]")
 
 next_page = (By.XPATH,"//a[contains(@data-testid,'page-next')]")
 
+page_no = (By.XPATH,"//a[@data-testid='pagination-page-current']")
+
 search = (By.XPATH,"//input[@aria-label='search: Job title, keywords, or company']")
 
 find_jobs = (By.XPATH,"//button[text()='Find jobs']")

@@ -17,3 +17,19 @@ class mainpage:
         print(f"Searched {job}")
 
         time.sleep(4)
+
+    def nav_next(self):
+
+        try:
+
+            if(self.driver.find_element(*pxp.next_page).is_displayed()):
+                    
+                    self.driver.find_element(*pxp.next_page).click()
+
+                    return True
+            
+            else:
+                return False
+        except Exception:
+             
+             return False

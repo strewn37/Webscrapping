@@ -17,15 +17,27 @@ loginPage.login_in()
 
 time.sleep(4)
 
+job = "data engineer"
+
 loginPage.verifyhomepage()
 
 time.sleep(5)
 
-mainPage.search("data analyst")
+mainPage.search(job)
 
-arr = extract.extract_titles_comp_loc()
+arr = []
 
-# for i in arr:
-#     print(i)
+temp = extract.extract_titles_comp_loc()
+
+for i in temp:
+    arr.append(i)
+
+while(mainPage.nav_next()):
+    temp = []
+    temp = extract.extract_titles_comp_loc()
+    for i in temp:
+        arr.append(i)
+
+extract.savetxt(arr,job)
 
 bot.quit()
