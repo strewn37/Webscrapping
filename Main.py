@@ -17,7 +17,9 @@ loginPage.login_in()
 
 time.sleep(4)
 
-job = "data engineer"
+print("Which Job you want scrape?")
+
+job = input()
 
 loginPage.verifyhomepage()
 
