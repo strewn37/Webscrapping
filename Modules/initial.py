@@ -9,12 +9,13 @@ class webd:
         options = webdriver.ChromeOptions()
         # proxy = "123.45.67.89:8080"
         # options.add_argument("--headless")
-        options.add_argument("--disable-gpu")
+        # options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
         # options.add_argument(f"--proxy-server={proxy}")
         options.add_argument("--disable-blink-features=AutomationControlled") 
-        options.add_argument("--disable-gpu-rasterization")
-        options.add_argument("--disable-software-rasterizer") 
-        options.binary_location = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        # options.add_argument("--disable-gpu-rasterization")
+        # options.add_argument("--disable-software-rasterizer") 
 
         service = Service(ChromeDriverManager().install())
 

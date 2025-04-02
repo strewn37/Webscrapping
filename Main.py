@@ -11,7 +11,7 @@ loginPage = login.log(driver)
 extract = Extraction.Extract(driver)
 print("Intialized all the pages")
 
-##-------------------------------
+##---------------------------------
 
 loginPage.login_in()
 
