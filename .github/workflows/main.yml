@@ -1,0 +1,23 @@
+name: main
+
+on:
+  push:
+    branches:
+      - Feature_Gokul
+
+jobs:
+  create-pr:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Auto PR - Merging Development to Main"
+          body: "This PR merges the latest changes from Feature_Gokul into main."
+          branch: development
+          base: main
+          labels: "automated-pr"
+          draft: false
