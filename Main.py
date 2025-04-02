@@ -21,6 +21,8 @@ print("Which Job you want scrape?")
 
 job = input()
 
+time.sleep(5)
+
 loginPage.verifyhomepage()
 
 time.sleep(5)

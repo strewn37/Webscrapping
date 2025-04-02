@@ -1,15 +1,21 @@
 import Xpaths.starter_xpaths as sxp
-import time
+from Modules import Verfiy as v
 from selenium import webdriver
+import cloudscraper
 
 class log:
 
     def __init__(self, bot: webdriver.Chrome):
-        self.driver = bot
 
+        self.driver = bot
+    
     def login_in(self):
 
         self.driver.get(r"https://in.indeed.com/")
+
+        current_url = self.driver.current_url
+
+        v.verifyesc(self.driver,current_url)
 
         print("Landed in Indeed Page")
 
@@ -21,16 +27,18 @@ class log:
 
         print("Clicked Home Icon")
 
-        time.sleep(10)
 
-        command = input()
 
-        if(command.lower() == 'proceed' or command.lower() == 'ok'):
+        # time.sleep(10)
 
-            user = self.driver.find_element(*sxp.name).text
+        # command = input()
 
-            print(f"Logged in as {user}")
-            print("Proceeding with next Steps....")
+        # if(command.lower() == 'proceed' or command.lower() == 'ok'):
+
+        #     user = self.driver.find_element(*sxp.name).text
+
+        #     print(f"Logged in as {user}")
+        #     print("Proceeding with next Steps....")
 
 
         # while(1):
@@ -112,16 +120,24 @@ class log:
         #     time.sleep(3)
 
     def verifyhomepage(self):
+
+        try:
             
-        Home = self.driver.find_element(*sxp.home)
-        
-        if(Home.is_displayed()):
+            self.driver.find_element(*sxp.home)
 
-            print(f"Landed in Homepage")
-            
-            Home.click()
-        else:
+        except Exception:
 
-            print(f"Not Landed in Homepage")
-        
+            current_url = self.driver.current_url
 
+            v.verifyesc(self.driver,current_url)
+
+        finally:
+
+            if(self.driver.find_element(*sxp.home).is_displayed()):
+
+                    print(f"Landed in Homepage")
+                    
+                    self.driver.find_element(*sxp.home).click()
+            else:
+
+                print(f"Not Landed in Homepage")
