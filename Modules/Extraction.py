@@ -5,7 +5,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
-import numpy as np
+from Modules import Verfiy as v
 
 
 class Extract:
@@ -52,7 +52,12 @@ class Extract:
                 print(f"Extracted all the Job Titles in {page}")
 
             except Exception:
-                 print("Extracted")
+
+                current_url = self.driver.current_url
+                
+                v.verifyesc(self.driver,current_url)
+
+                print(f"Extracted!!")
 
             return arr
     
@@ -66,6 +71,6 @@ class Extract:
         
         path  = r"C:\Users\pechimut\Webscrape\Webscrape"+job+".txt"
 
-        with open(path, "w") as file:
+        with open(path, "w", encoding="utf-8", errors="ignore") as file:
             for item in tq(df.squeeze(), desc="Writing to file", unit="row"):
                 file.write(str(item) + "\n")
