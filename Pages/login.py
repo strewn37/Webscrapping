@@ -13,17 +13,15 @@ class log:
 
         self.driver.get(r"https://in.indeed.com/")
 
-        current_url = self.driver.current_url
-
-        v.verifyesc(self.driver,current_url)
+        v.verifyesc()
 
         print("Landed in Indeed Page")
 
-        homeicon = self.driver.find_element(*sxp.ind_home)
+        # homeicon = self.driver.find_element(*sxp.ind_home)
         
-        self.driver.execute_script("arguments[0].setAttribute('style','border: 3px solid red;');",homeicon)
+        # self.driver.execute_script("arguments[0].setAttribute('style','border: 3px solid red;');",homeicon)
 
-        self.driver.execute_script("arguments[0].click();",homeicon)
+        # self.driver.execute_script("arguments[0].click();",homeicon)
 
         print("Clicked Home Icon")
 

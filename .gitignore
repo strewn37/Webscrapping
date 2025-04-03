@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 airflow-venv
+Modules/initial.py
+Modules/Verify.py
 
 # C extensions
 *.so

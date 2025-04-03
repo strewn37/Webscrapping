@@ -51,11 +51,13 @@ class Extract:
             
                 print(f"Extracted all the Job Titles in {page}")
 
-            except Exception:
+                if(page == '28'):
+                    
+                    v.verifyesc()
+                    
+                    self.driver.refresh()
 
-                current_url = self.driver.current_url
-                
-                v.verifyesc(self.driver,current_url)
+            except Exception:
 
                 print(f"Extracted!!")
 

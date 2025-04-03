@@ -13,13 +13,11 @@ print("Intialized all the pages")
 
 ##-------------------------------
 
-loginPage.login_in()
-
-time.sleep(4)
-
 print("Which Job you want scrape?")
 
 job = input()
+
+loginPage.login_in()
 
 time.sleep(5)
 
