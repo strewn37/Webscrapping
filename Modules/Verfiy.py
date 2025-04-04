@@ -4,7 +4,7 @@ from selenium import webdriver
 
 def verifyesc(driver:webdriver.Chrome):
 
-        print(f"Escaping Verification!")
+        # print(f"Escaping Verification!")
 
         scraper = cloudscraper.create_scraper()
 
@@ -21,3 +21,5 @@ def verifyesc(driver:webdriver.Chrome):
         time.sleep(5)
     
         driver.refresh()
+
+        time.sleep(10)

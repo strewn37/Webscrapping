@@ -2,44 +2,49 @@ import time
 from Modules import initial,Extraction
 from Pages import login,jobs
 
-##---- Initializing all Pages----
 
-bot = initial.webd()
-driver = bot.driver
-mainPage = jobs.mainpage(driver)
-loginPage = login.log(driver)
-extract = Extraction.Extract(driver)
-print("Intialized all the pages")
+def scrape(job):
+    ##---- Initializing all Pages----
 
-##-------------------------------
+    bot = initial.webd()
+    driver = bot.driver
+    mainPage = jobs.mainpage(driver)
+    loginPage = login.log(driver)
+    extract = Extraction.Extract(driver)
+    print("Intialized all the pages")
 
-print("Which Job you want scrape?")
+    ##-------------------------------
 
-job = input()
+    # print("Which Job you want scrape?")
 
-loginPage.login_in()
+    # job = input()
 
-time.sleep(5)
+    loginPage.login_in()
 
-loginPage.verifyhomepage()
+    time.sleep(5)
 
-time.sleep(5)
+    loginPage.verifyhomepage()
 
-mainPage.search(job)
+    time.sleep(5)
 
-arr = []
+    mainPage.search(job)
 
-temp = extract.extract_titles_comp_loc()
+    arr = []
 
-for i in temp:
-    arr.append(i)
-
-while(mainPage.nav_next()):
-    temp = []
     temp = extract.extract_titles_comp_loc()
+
     for i in temp:
         arr.append(i)
 
-extract.savetxt(arr,job)
+    while(mainPage.nav_next()):
+        temp = []
+        temp = extract.extract_titles_comp_loc()
+        for i in temp:
+            arr.append(i)
+        time.sleep(5)
 
-bot.quit()
+    extract.savetxt(arr,job)
+
+    bot.quit()
+
+# scrape("Data Engineer")

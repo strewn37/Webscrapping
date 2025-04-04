@@ -13,9 +13,11 @@ class log:
 
         self.driver.get(r"https://in.indeed.com/")
 
-        v.verifyesc()
+        v.verifyesc(self.driver)
 
-        print("Landed in Indeed Page")
+        self.driver.refresh()
+
+        # print("Landed in Indeed Page")
 
         # homeicon = self.driver.find_element(*sxp.ind_home)
         
@@ -23,7 +25,7 @@ class log:
 
         # self.driver.execute_script("arguments[0].click();",homeicon)
 
-        print("Clicked Home Icon")
+        # print("Clicked Home Icon")
 
 
 
@@ -127,15 +129,15 @@ class log:
 
             current_url = self.driver.current_url
 
-            v.verifyesc(self.driver,current_url)
+            v.verifyesc(self.driver)
 
         finally:
 
             if(self.driver.find_element(*sxp.home).is_displayed()):
 
-                    print(f"Landed in Homepage")
+                    # print(f"Landed in Homepage")
                     
                     self.driver.find_element(*sxp.home).click()
-            else:
+            # else:
 
-                print(f"Not Landed in Homepage")
+                # print(f"Not Landed in Homepage")

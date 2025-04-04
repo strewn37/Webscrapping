@@ -15,8 +15,10 @@ class webd:
         options.add_argument("--disable-gpu-rasterization")
         options.add_argument("--disable-software-rasterizer") 
         options.binary_location = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        
+        chrome_driver_path = r"C:\Users\pechimut\Webscrape\chromedriver.exe"
 
-        service = Service(ChromeDriverManager().install())
+        service = Service(executable_path=chrome_driver_path)
 
         self.driver = webdriver.Chrome(service=service, options=options)
     

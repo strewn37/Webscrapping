@@ -11,8 +11,17 @@ from Modules import Verfiy as v
 class Extract:
     def __init__(self,bot: webdriver.Chrome):
             self.driver = bot
+            self.page = "0"
 
     def extract_titles_comp_loc(self):
+            
+            page_check = int(self.page)
+            
+            if(page_check == 28 or page_check == 31 or page_check>36):
+                    
+                v.verifyesc(self.driver)
+                        
+                self.driver.refresh()
             
             jobTitle = self.driver.find_elements(*pxp.job_title)
             company = self.driver.find_elements(*pxp.job_company)
@@ -46,20 +55,17 @@ class Extract:
                      pass
             
             time.sleep(5)
-            try:
-                page = self.driver.find_element(*pxp.page_no).text
-            
-                print(f"Extracted all the Job Titles in {page}")
 
-                if(page == '28'):
-                    
-                    v.verifyesc()
-                    
-                    self.driver.refresh()
+            try:
+
+                self.page = self.driver.find_element(*pxp.page_no).text
+            
+                # print(f"Extracted all the Job Titles in {self.page}")
 
             except Exception:
 
-                print(f"Extracted!!")
+                # print(f"Extracted!!")
+                return arr
 
             return arr
     
