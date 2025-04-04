@@ -8,5 +8,3 @@ with ThreadPoolExecutor(max_workers=2) as executor:
 
     for future in as_completed(jobs):
         print(f"Job done: {future.result()}")
-
-
