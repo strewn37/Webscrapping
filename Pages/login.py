@@ -13,9 +13,7 @@ class log:
 
         self.driver.get(r"https://in.indeed.com/")
 
-        current_url = self.driver.current_url
-
-        v.verifyesc(self.driver,current_url)
+        v.verifyesc(self.driver)
 
         print("Landed in Indeed Page")
 

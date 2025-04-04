@@ -52,10 +52,8 @@ class Extract:
                 print(f"Extracted all the Job Titles in {page}")
 
             except Exception:
-
-                current_url = self.driver.current_url
                 
-                v.verifyesc(self.driver,current_url)
+                v.verifyesc(self.driver)
 
                 print(f"Extracted!!")
 
@@ -69,7 +67,7 @@ class Extract:
 
         # print(np_array.shape)
         
-        path  = r"C:\Users\pechimut\Webscrape\Webscrape"+job+".txt"
+        path  = r"home\gokul\Webscrape"+job+".txt"
 
         with open(path, "w", encoding="utf-8", errors="ignore") as file:
             for item in tq(df.squeeze(), desc="Writing to file", unit="row"):
