@@ -29,7 +29,7 @@ class Extract:
 
             arr = []
 
-            for elementTitle,elementCompany,elementLocation in tq(zip(jobTitle,company,location),total=len(jobTitle),desc="Extracting JobTitle,Company,Location",unit="lines"):
+            for elementTitle,elementCompany,elementLocation in zip(jobTitle,company,location):
 
                 try:
                     title = str(elementTitle.text)
@@ -46,7 +46,7 @@ class Extract:
                     pattern_t = r"[,]"
 
                     salary = re.sub(pattern_s,"",salary)
-                    title = re.sub(pattern_t," ",title)
+                    title = re.sub(pattern_t,"-",title)
 
                     row = title+","+comp+","+loc+","+salary
                     arr.append(row)
@@ -80,5 +80,5 @@ class Extract:
         path  = r"C:\Users\pechimut\Webscrape\Webscrape"+job+".txt"
 
         with open(path, "w", encoding="utf-8", errors="ignore") as file:
-            for item in tq(df.squeeze(), desc="Writing to file", unit="row"):
+            for item in df.squeeze():
                 file.write(str(item) + "\n")

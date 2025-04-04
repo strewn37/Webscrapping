@@ -14,7 +14,7 @@ class mainpage:
 
         self.driver.find_element(*pxp.find_jobs).click()
 
-        print(f"Searched {job}")
+        # print(f"Searched {job}")
 
         time.sleep(4)
 
