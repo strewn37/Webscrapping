@@ -1,10 +1,15 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from Main import scrape
+from Modules.Main import scrape
 
-job_list = ["Data Engineer","Data Scientist","ETL Developer","Data Analyst"]
 
-with ThreadPoolExecutor(max_workers=2) as executor:
-    jobs = [executor.submit(scrape, job) for job in job_list]
+def thread():
+    print("I am here!")
+    job_list = ["Data Engineer","Data Scientist","ETL Developer","Data Analyst"]
 
-    for future in as_completed(jobs):
-        print(f"Job done: {future.result()}")
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        jobs = [executor.submit(scrape, job) for job in job_list]
+
+        for future in as_completed(jobs):
+            print(f"Job done: {future.result()}")
+
+# thread()

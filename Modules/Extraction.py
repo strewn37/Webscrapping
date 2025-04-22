@@ -64,7 +64,7 @@ class Extract:
 
             except Exception:
 
-                # print(f"Extracted!!")
+                print(f"Extracted!!")
                 return arr
 
             return arr
@@ -77,8 +77,10 @@ class Extract:
 
         # print(np_array.shape)
         
-        path  = r"C:\Users\pechimut\Webscrape\Webscrape"+job+".txt"
+        path  = "/mnt/c/Users/pechimut/WSL_Webscrape/"+job+".txt"
 
         with open(path, "w", encoding="utf-8", errors="ignore") as file:
             for item in df.squeeze():
                 file.write(str(item) + "\n")
+
+        print(f"Saved the file in {path}")
