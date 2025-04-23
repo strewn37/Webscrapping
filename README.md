@@ -4,8 +4,8 @@
 This project involves web scraping job listings from platforms like **Indeed** and processing the data for analysis and visualization. The pipeline follows a structured **ELT (Extract, Load, Transform) approach**, leveraging **Azure Data Lake Storage** for efficient data handling.
 
 ## Tools & Technologies Used
-- **Tools:** VSC (Visual Studio Code), SSMS (SQL Server Management Studio)
-- **Technologies:** Python, PySpark/Pandas, Selenium, SQL
+- **Tools:** VSC (Visual Studio Code), SSMS (SQL Server Management Studio), Airflow
+- **Languages/Libraries:** Python, PySpark/Pandas, Selenium, SQL
 
 ## Data Pipeline Workflow
 
