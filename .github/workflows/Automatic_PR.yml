@@ -5,6 +5,11 @@ on:
     branches:
       - 'Feature_*'
   workflow_dispatch:
+    inputs:
+      source_branch:
+        description: 'Source branch to create a PR from'
+        required: true
+        default: 'Feature_Gokul'
 
 jobs:
   create-pull-request:
