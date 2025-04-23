@@ -11,9 +11,15 @@ This project involves web scraping job listings from platforms like **Indeed** a
 
 ### 1. Scraping the Data (Extraction)
 - **Selenium** is used to extract **job-related data** (job postings, company names, ratings, salaries, and locations) from web sources.
+- **Three Types of sample data with Salary per Year, Month and No Salary**
+   - **(Power BI & SQL Developer,Sanglob Business Services Private Limited,Pune, Maharashtra,480000 - 960000  year)**
+   - **(Sr.AI/ML Engineer,Jobbycart Technologies,Tiruchchirappalli, Tamil Nadu,25000 - 100000  month)**
+   - **(GBS Data Operations - Document Control & Engineering Data Senior Analyst,BP Energy,Hybrid work in Pune, Maharashtra,Not Mentioned)**
 
 ### 2. Processing & Storing as Raw Data (Bronze Layer)
 - The extracted data is processed and stored locally as a **.txt file**, marking the **Bronze Layer** stage.
+- As far as we used only **4 jobs to extract**, An **Average count of 766 rows/file**
+    ![image](https://github.com/user-attachments/assets/564a5c99-c7ff-4e67-b618-0669f8633aab)
 
 ### 3. Loading Data into Azure Data Lake (Bronze → Silver Layer)
 - The locally stored data is ingested into **Azure Data Lake Storage** for further processing.
