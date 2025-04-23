@@ -2,8 +2,9 @@ name: Auto PR to Main
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - 'Feature_*'
+  workflow_dispatch:
 
 jobs:
   create-pull-request:
