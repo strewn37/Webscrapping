@@ -6,6 +6,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pandas as pd
 from Modules import Verfiy as v
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 class Extract:
@@ -77,7 +81,11 @@ class Extract:
 
         # print(np_array.shape)
         
-        path  = "/mnt/c/Users/pechimut/WSL_Webscrape/"+job+".txt"
+
+        if(os.getenv("SYSTEM")=='WSL'):
+            path = os.getenv("PATH_WSL")+job+".txt"
+        else:
+            path = os.getenv("PATH_Windows")+job+".txt"
 
         with open(path, "w", encoding="utf-8", errors="ignore") as file:
             for item in df.squeeze():

@@ -3,10 +3,10 @@ from Modules import initial,Extraction
 from Pages import login,jobs
 
 
-def scrape(job):
+def scrape(job,system):
     ##---- Initializing all Pages----
 
-    bot = initial.webd()
+    bot = initial.webd(system)
     driver = bot.driver
     mainPage = jobs.mainpage(driver)
     loginPage = login.log(driver)

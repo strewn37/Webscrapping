@@ -16,7 +16,7 @@ def Scrape_Job():
     print("Chrome path:", shutil.which("google-chrome"))
     print("Driver path:", shutil.which("chromedriver"))
     print("Starting the Job!")
-    thread()
+    thread("wsl")
     end = time.time()
     print(f"Completed the Job in {end - start:.4f} seconds")
 
