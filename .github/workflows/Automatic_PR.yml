@@ -3,7 +3,7 @@ name: Auto PR to Main
 on:
   push:
     branches:
-      - 'Feature_*'
+      - 'Feature_Gokul'
   workflow_dispatch:
     inputs:
       source_branch:
