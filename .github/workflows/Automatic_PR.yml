@@ -19,14 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Print source branch for debug
-        run: echo "Feature_Gokul"
-
       - name: Create Pull Request
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: ${{ github.event.inputs.source_branch }}
-          destination_branch: "main"
-          pr_title: "Auto PR from `${{ github.event.inputs.source_branch }}` to `main`"
-          pr_body: "This is an automated PR triggered by a push or manual dispatch from `${{ github.event.inputs.source_branch }}`"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -d '{"title":"Auto PR from ${{ github.event.inputs.source_branch }} to main","head":"${{ github.event.inputs.source_branch }}","base":"main","body":"This is an automated PR triggered by a push or manual dispatch."}' \
+            https://api.github.com/repos/${{ github.repository }}/pulls
