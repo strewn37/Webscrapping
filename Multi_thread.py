@@ -12,4 +12,4 @@ def thread(system):
         for future in as_completed(jobs):
             print(f"Job done: {future.result()}")
 
-# thread("windows")
+thread("windows")
