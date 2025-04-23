@@ -13,8 +13,6 @@ from Multi_thread import thread
 
 def Scrape_Job():
     start = time.time()
-    print("Chrome path:", shutil.which("google-chrome"))
-    print("Driver path:", shutil.which("chromedriver"))
     print("Starting the Job!")
     thread("wsl")
     end = time.time()
