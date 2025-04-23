@@ -4,23 +4,40 @@ on:
   push:
     branches:
       - Feature_Gokul
+
   workflow_dispatch:
     inputs:
       source_branch:
         description: 'Source branch to create a PR from'
-        required: true
+        required: false
         default: 'Feature_Gokul'
 
 jobs:
-  create-pull-request:
+  create-pr:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create Pull Request
+      - name: Set up GitHub CLI
+        uses: cli/cli-action@v2
+
+      - name: Determine source branch
+        id: vars
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{"title":"Auto PR from ${{ github.event.inputs.source_branch }} to main","head":"${{ github.event.inputs.source_branch }}","base":"main","body":"This is an automated PR triggered by a push or manual dispatch."}' \
-            https://api.github.com/repos/${{ github.repository }}/pulls
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "branch=${{ github.event.inputs.source_branch }}" >> $GITHUB_OUTPUT
+          else
+            echo "branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request using GitHub CLI
+        run: |
+          gh pr create \
+            --base main \
+            --head ${{ steps.vars.outputs.branch }} \
+            --title "Auto PR from ${{ steps.vars.outputs.branch }}" \
+            --body "PR created automatically via workflow (${{ github.event_name }})"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
