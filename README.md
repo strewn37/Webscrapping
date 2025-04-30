@@ -1,4 +1,4 @@
-# Web Scraping Project - Job Listings Data Pipeline
+# Web Scraping Project - Jobs Trend Analyzer
 
 ## Overview
 This project involves web scraping job listings from platforms like **Indeed** and processing the data for analysis and visualization. The pipeline follows a structured **ELT (Extract, Load, Transform) approach**, leveraging **Azure Data Lake Storage** for efficient data handling.
@@ -35,10 +35,6 @@ This project involves web scraping job listings from platforms like **Indeed** a
 
 ### 5. Further Transformation & Storing in Data Warehouse (Gold Layer)
 - The cleaned and optimized data is **further transformed** for **visualization** and stored in a **Data Warehouse (Gold Layer)**.
-
-### 6. Visualization
-- The final dataset is used for **graphical representation and analytics**.
-- Various **charts and graphs** provide insights into job trends, salary distributions, and company ratings.
 
 ## Key Takeaways
 - **Azure Data Lake Storage** is utilized for **managing different data layers (Bronze → Silver → Gold)**.
