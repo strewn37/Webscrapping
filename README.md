@@ -24,6 +24,8 @@ This project involves web scraping job listings from platforms like **Indeed** a
 ### 3. Loading Data into Azure Data Lake (Bronze → Silver Layer)
 - The locally stored data is ingested into **Azure Data Lake Storage** for further processing.
 - This transition ensures that raw data is securely stored and ready for transformation.
+- ![image](https://github.com/user-attachments/assets/a93fd741-4825-4cb0-80fa-59e8da776ead)
+
 
 ### 4. Transforming the Data (Silver Layer)
 - The **structured and refined data** is processed and stored in the **Silver Layer** of the Data Lake.
